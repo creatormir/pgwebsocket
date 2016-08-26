@@ -7,7 +7,7 @@ with open(path.join(path.abspath(path.dirname(__file__)), 'README.rst'), encodin
 
 setup(
     name="pgwebsocket",
-    version="0.0.1b1",
+    version="0.0.1b2",
     description="Async websocket to PostgreSQL proxy",
     long_description=long_description,
     author="Wirehive Ltd",

@@ -9,7 +9,6 @@ Note: This dose not handle authentication and authorization, ensure you implemen
 
 import json
 import asyncio
-import select
 import traceback
 import logging
 import psycopg2
@@ -99,6 +98,14 @@ class Ctx(object):
     def remote_user(self):
         """Remote user that created this Ctx"""
         return self._remote_user
+
+    def send_str(self, data):
+        """Send string to websocket"""
+        return self._websocket.send_str(data)
+
+    def send_bytes(self, data):
+        """Send bytes to websocket"""
+        return self._websocket.send_bytes(data)
 
 class PgWebsocket(object):
     """An application to handle websocket to Postgresql proxying"""
