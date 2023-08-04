@@ -12,7 +12,7 @@ setup(
     long_description=long_description,
     author="Wirehive Ltd",
     author_email="barnaby@wirehive.net",
-    url="https://github.com/wirehive/pgwebsocket",
+    url="https://github.com/creatormir/pgwebsocket2",
     license='GPLv2',
     keywords="aiohttp psycopg2 postgresql websocket",
     packages=[
