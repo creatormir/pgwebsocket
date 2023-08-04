@@ -1,29 +1,34 @@
 pgwebsocket
 ===========
 
-.. code-block:: python
+python:
 
+.. code-block:: python
+    
+    import logging
     from pgwebsocket import PgWebsocket
     
-    app = PgWebsocket(
-        "postgresql://"
-    )
+    logging.basicConfig(level=logging.DEBUG)
     
-    @app.on_connect
-    async def on_connect(ctx):
-        """"""
-        ctx.subscribed = []
-        await ctx.execute("LISTEN all;")
+    app = PgWebsocket( bind="127.0.0.1", port=9000 )
     
-    @app.on_disconnect
-    async def on_disconnect(ctx):
-        """"""
-        await ctx.execute("UNLISTEN all;")
+    # app.connect_db("host=127.0.0.1 port=5432 user=postgres password=postgres dbname=postgres connect_timeout=5")
+    
+    # @app.on_connect
+    # async def _on_connect(ctx):
+    #     await ctx.execute("LISTEN clients;")
+    
+    # @app.on_disconnect
+    # async def _on_disconnect(ctx):
+    #     await ctx.execute("UNLISTEN clients;")
     
     if __name__ == '__main__':
         app.run()
 
+JS:
+
 .. code-block:: javascript
+    
     var socket = new WebSocket("ws://127.0.0.1:9000/");
     
     socket.onopen = function(e) {
